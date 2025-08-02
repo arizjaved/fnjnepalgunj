@@ -206,46 +206,6 @@
         </div>
     </div>
 
-    <!-- Recent Activity -->
-    <div class="bg-white rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h3>
-        <div class="space-y-4">
-            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                <div class="w-10 h-10 bg-[#0073b7] rounded-full flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-800">New press release published</p>
-                    <p class="text-xs text-gray-500">2 hours ago</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-800">New user registered</p>
-                    <p class="text-xs text-gray-500">5 hours ago</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
-                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                    </svg>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-800">News article updated</p>
-                    <p class="text-xs text-gray-500">1 day ago</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
 @endsection

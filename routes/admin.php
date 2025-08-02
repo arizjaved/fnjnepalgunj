@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\VideoGalleryController;
 use App\Http\Controllers\Admin\MembershipController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CommitteeContentController;
+use App\Http\Controllers\Admin\NewsPageController;
 
 // Media Categories
 Route::resource('media-categories', MediaCategoryController::class);
@@ -31,3 +32,10 @@ Route::put('about', [AboutController::class, 'update'])->name('about.update');
 Route::get('committee', [CommitteeContentController::class, 'index'])->name('committee.index');
 Route::get('committee/edit', [CommitteeContentController::class, 'edit'])->name('committee.edit');
 Route::put('committee', [CommitteeContentController::class, 'update'])->name('committee.update');
+
+// News Page
+Route::get('news-page', [NewsPageController::class, 'index'])->name('news-page.index');
+Route::put('news-page', [NewsPageController::class, 'update'])->name('news-page.update');
+
+// Press Release Page 
+Route::get('press-release-page', [PressReleaseController::class, 'index'])->name('press-release-page.index');

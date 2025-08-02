@@ -10,8 +10,10 @@ use App\Http\Controllers\EconomicActivityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GrievanceController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/lang', [LanguageController::class, 'switchLang'])->name('lang.switch');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/committee', [CommitteeController::class, 'index'])->name('committee');
 Route::get('/photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo-gallery');
@@ -130,5 +132,49 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('contact-page', [App\Http\Controllers\Admin\ContactContentController::class, 'index'])->name('contact-page.index');
         Route::get('contact-page/edit', [App\Http\Controllers\Admin\ContactContentController::class, 'edit'])->name('contact-page.edit');
         Route::put('contact-page', [App\Http\Controllers\Admin\ContactContentController::class, 'update'])->name('contact-page.update');
+        
+
+        
+        // Page Titles Management
+        Route::get('page-titles', [App\Http\Controllers\Admin\PageTitleController::class, 'index'])->name('page-titles.index');
+        Route::put('page-titles', [App\Http\Controllers\Admin\PageTitleController::class, 'update'])->name('page-titles.update');
+        
+        // News Page Management
+        Route::get('news-page', [App\Http\Controllers\Admin\NewsPageController::class, 'index'])->name('news-page.index');
+        Route::put('news-page', [App\Http\Controllers\Admin\NewsPageController::class, 'update'])->name('news-page.update');
+        
+        // Notice Page Management
+        Route::get('notice-page', [App\Http\Controllers\Admin\NoticePageController::class, 'index'])->name('notice-page.index');
+        Route::put('notice-page', [App\Http\Controllers\Admin\NoticePageController::class, 'update'])->name('notice-page.update');
+        
+        // Press Release Page Management
+        Route::get('press-release-page', [App\Http\Controllers\Admin\PressReleasePageController::class, 'index'])->name('press-release-page.index');
+        Route::put('press-release-page', [App\Http\Controllers\Admin\PressReleasePageController::class, 'update'])->name('press-release-page.update');
+
+        // Photo Gallery Page Management
+        Route::get('photo-gallery-page', [App\Http\Controllers\Admin\PhotoGalleryPageController::class, 'index'])->name('photo-gallery-page.index');
+        Route::put('photo-gallery-page', [App\Http\Controllers\Admin\PhotoGalleryPageController::class, 'update'])->name('photo-gallery-page.update');
+
+        // Video Gallery Page Management
+        Route::get('video-gallery-page', [App\Http\Controllers\Admin\VideoGalleryPageController::class, 'index'])->name('video-gallery-page.index');
+        Route::put('video-gallery-page', [App\Http\Controllers\Admin\VideoGalleryPageController::class, 'update'])->name('video-gallery-page.update');
+
+        // Publication Page Management
+        Route::get('publication-page', [App\Http\Controllers\Admin\PublicationPageController::class, 'index'])->name('publication-page.index');
+        Route::put('publication-page', [App\Http\Controllers\Admin\PublicationPageController::class, 'update'])->name('publication-page.update');
+
+        // Economic Activity Page Management
+        Route::get('economic-activity-page', [App\Http\Controllers\Admin\EconomicActivityPageController::class, 'index'])->name('economic-activity-page.index');
+        Route::put('economic-activity-page', [App\Http\Controllers\Admin\EconomicActivityPageController::class, 'update'])->name('economic-activity-page.update');
+
+        // Membership Page Management
+        Route::get('membership-page', [App\Http\Controllers\Admin\MembershipPageController::class, 'index'])->name('membership-page.index');
+        Route::put('membership-page', [App\Http\Controllers\Admin\MembershipPageController::class, 'update'])->name('membership-page.update');
+
+        // Grievance Page Management
+        Route::get('grievance-page', [App\Http\Controllers\Admin\GrievancePageController::class, 'index'])->name('grievance-page.index');
+        Route::put('grievance-page', [App\Http\Controllers\Admin\GrievancePageController::class, 'update'])->name('grievance-page.update');
+
+
     });
 });

@@ -3,12 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\PageTitleController;
 
 class MembershipController extends Controller
 {
     public function index()
     {
-        return view('membership');
+        // Create page content object with default values
+        $pageContent = (object) [
+            'title' => 'सदस्यता',
+            'subtitle' => null,
+            'description' => null,
+            'featured_image' => null,
+            'meta_title' => PageTitleController::getPageTitle('membership', 'सदस्यता - नेपाल पत्रकार महासंघ'),
+            'meta_description' => 'नेपाल पत्रकार महासंघको सदस्यता'
+        ];
+        
+        return view('membership', compact('pageContent'));
     }
 
     public function store(Request $request)

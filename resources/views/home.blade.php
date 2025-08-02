@@ -12,7 +12,7 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-[#004a7f] flex items-center">
                 <svg class="w-6 h-6 mr-2 text-[#0073b7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 12h6M7 8h6"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                 </svg>
                 | ताजा समाचार
             </h2>
@@ -67,42 +67,7 @@
             @include('components.sidebar')
         </div>
     </div>
-    <!-- Action Buttons -->
-    <div class="flex flex-col md:flex-row gap-4">
-        <div class="flex-1 bg-[#0073b7] hover:bg-[#004a7f] text-white p-4 rounded-md flex items-center space-x-4 transition-colors cursor-pointer" onclick="openMembershipModal()">
-            <div class="text-white/70">
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.284.002A3 3 0 717.093 18.72m0 0a9.094 9.094 0 013.741-.479m-3.741.479L5.25 12.45a3 3 0 014.682-2.72m-4.682 2.72a3 3 0 010 4.505M12.75 5.106a3 3 0 014.505 0m-4.505 0a3 3 0 00-4.505 0m4.505 0L17.25 2.25a3 3 0 00-4.505 0m-4.505 0L7.25 5.106M12 15a3 3 0 100-6 3 3 0 000 6z"></path>
-                </svg>
-            </div>
-            <div>
-                <p class="font-bold text-xl">Check your Membership</p>
-                <p class="text-xs">Renewal Status</p>
-            </div>
-        </div>
-        <a href="#" class="flex-1 bg-[#0073b7] hover:bg-[#004a7f] text-white p-4 rounded-md flex items-center space-x-4 transition-colors">
-            <div class="text-white/70">
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path>
-                </svg>
-            </div>
-            <div>
-                <p class="font-bold text-xl">Media Policy</p>
-            </div>
-        </a>
-        <a href="{{ route('grievance.index') }}" class="flex-1 bg-[#0073b7] hover:bg-[#004a7f] text-white p-4 rounded-md flex items-center space-x-4 transition-colors">
-            <div class="text-white/70">
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v.01a6 6 0 01-5.84-7.38C3.91 8.84 9.12 3 12 3s8.09 5.84 8.09 11.37z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 12.75a5.25 5.25 0 01-10.5 0 5.25 5.25 0 0110.5 0z"></path>
-                </svg>
-            </div>
-            <div>
-                <p class="font-bold text-lg">स्टोरी पोष्ट गर्नुहोस्</p>
-                <p class="text-xs">स्टोरी पोष्ट गर्नुहोस् | स्टोरीहरु हेर्नुहोस्</p>
-            </div>
-        </a>
-    </div>
+
 
     <!-- Photo and Video Gallery -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -148,8 +113,8 @@
         <div class="space-y-4">
             <div class="flex justify-between items-center border-b pb-2">
                 <h3 class="text-xl font-bold text-[#004a7f] flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-[#0073b7]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653z"></path>
+                    <svg class="w-5 h-5 mr-2 text-[#0073b7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                     </svg>
                     | भिडियो ग्यालरी
                 </h3>

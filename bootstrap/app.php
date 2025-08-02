@@ -16,6 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\MaintenanceModeMiddleware::class,
         ]);
     })
+    ->withProviders([
+        \App\Providers\HelperServiceProvider::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

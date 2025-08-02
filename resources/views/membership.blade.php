@@ -14,12 +14,18 @@
                 </svg>
             </div>
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-2">सदस्यता फारम</h1>
-                <p class="text-xl opacity-90">नेपाल पत्रकार महासंघ</p>
+                <h1 class="text-4xl font-bold mb-2">
+                    {{ $pageContent->title ?? 'सदस्यता फारम' }}
+                </h1>
+                <p class="text-xl opacity-90">
+                    {{ $pageContent->subtitle ?? 'नेपाल पत्रकार महासंघ' }}
+                </p>
             </div>
         </div>
         <div class="text-center">
-            <p class="text-lg opacity-80">नेपाल पत्रकार महासंघको सदस्यता लिनका लागि तलको फारम भर्नुहोस्</p>
+            <p class="text-lg opacity-80">
+                {{ $pageContent->description ?? 'नेपाल पत्रकार महासंघको सदस्यता लिनका लागि तलको फारम भर्नुहोस्' }}
+            </p>
         </div>
     </div>
 
@@ -45,35 +51,48 @@
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="border border-[#0073b7]/20 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-[#0073b7] mb-2">नियमित सदस्यता</h3>
-                <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• न्यूनतम २ वर्षको पत्रकारिता अनुभव</li>
-                    <li>• वार्षिक शुल्क: रु. ५००</li>
-                    <li>• मतदानको अधिकार</li>
-                    <li>• सबै सुविधाहरूको पहुँच</li>
-                </ul>
-            </div>
+            @php
+                $membershipTypes = [
+                    'regular' => [
+                        'title' => 'नियमित सदस्यता',
+                        'features' => [
+                            'न्यूनतम २ वर्षको पत्रकारिता अनुभव',
+                            'वार्षिक शुल्क: रु. ५००',
+                            'मतदानको अधिकार',
+                            'सबै सुविधाहरूको पहुँच'
+                        ]
+                    ],
+                    'associate' => [
+                        'title' => 'सहयोगी सदस्यता',
+                        'features' => [
+                            'नयाँ पत्रकारहरूका लागि',
+                            'वार्षिक शुल्क: रु. ३००',
+                            'तालिम र कार्यशालामा सहभागिता',
+                            'सीमित सुविधाहरू'
+                        ]
+                    ],
+                    'life' => [
+                        'title' => 'आजीवन सदस्यता',
+                        'features' => [
+                            '१० वर्षभन्दा बढी अनुभव',
+                            'एकपटकको शुल्क: रु. १०,०००',
+                            'सबै अधिकार र सुविधाहरू',
+                            'विशेष सम्मान र पहिचान'
+                        ]
+                    ]
+                ];
+            @endphp
             
-            <div class="border border-[#0073b7]/20 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-[#0073b7] mb-2">सहयोगी सदस्यता</h3>
-                <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• नयाँ पत्रकारहरूका लागि</li>
-                    <li>• वार्षिक शुल्क: रु. ३००</li>
-                    <li>• तालिम र कार्यशालामा सहभागिता</li>
-                    <li>• सीमित सुविधाहरू</li>
-                </ul>
-            </div>
-            
-            <div class="border border-[#0073b7]/20 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 class="font-bold text-[#0073b7] mb-2">आजीवन सदस्यता</h3>
-                <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• १० वर्षभन्दा बढी अनुभव</li>
-                    <li>• एकपटकको शुल्क: रु. १०,०००</li>
-                    <li>• सबै अधिकार र सुविधाहरू</li>
-                    <li>• विशेष सम्मान र पहिचान</li>
-                </ul>
-            </div>
+            @foreach($membershipTypes as $type => $details)
+                <div class="border border-[#0073b7]/20 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h3 class="font-bold text-[#0073b7] mb-2">{{ $details['title'] }}</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        @foreach($details['features'] as $feature)
+                            <li>• {{ $feature }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -302,26 +321,36 @@
 
     <!-- Contact Information -->
     <div class="bg-gradient-to-r from-[#0073b7] to-[#004a7f] rounded-lg p-6 text-white mt-8">
-        <h3 class="text-xl font-bold mb-4 text-center">सम्पर्क जानकारी</h3>
+        <h3 class="text-xl font-bold mb-4 text-center">
+            सम्पर्क जानकारी
+        </h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            @php
+                $contactInfo = [
+                    'address' => 'मिडिया भिलेज, तिलगंगा, काठमाडौं',
+                    'phone' => '+९७७-१-५९१४७८५, ५९१४७२३',
+                    'email' => 'fnjnepalcentral@gmail.com'
+                ];
+            @endphp
+            
             <div class="flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <span>मिडिया भिलेज, तिलगंगा, काठमाडौं</span>
+                <span>{{ $contactInfo['address'] }}</span>
             </div>
             <div class="flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                 </svg>
-                <span>+९७७-१-५९१४७८५, ५९१४७२३</span>
+                <span>{{ $contactInfo['phone'] }}</span>
             </div>
             <div class="flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
-                <span>fnjnepalcentral@gmail.com</span>
+                <span>{{ $contactInfo['email'] }}</span>
             </div>
         </div>
     </div>

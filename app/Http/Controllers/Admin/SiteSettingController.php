@@ -48,6 +48,13 @@ class SiteSettingController extends Controller
                     $value = $request->file("settings.{$key}")->store('settings', 'public');
                 }
                 
+                if ($key === 'site_logo' && $request->hasFile('settings.site_logo')) {
+                    if ($setting->value && Storage::disk('public')->exists($setting->value)) {
+                        Storage::disk('public')->delete($setting->value);
+                    }
+                    $value = $request->file('settings.site_logo')->store('', 'public');
+                }
+                
                 // Handle boolean values
                 if ($setting->type === 'boolean') {
                     $value = $request->has("settings.{$key}") ? '1' : '0';
@@ -69,6 +76,23 @@ class SiteSettingController extends Controller
                 $setting->update(['value' => $value]);
             }
         }
+
+        // Clear site settings cache specifically
+        SiteSetting::clearCache();
+        
+        // Clear any relevant caches
+        \Illuminate\Support\Facades\Cache::flush();
+        
+        // Clear view cache
+        \Illuminate\Support\Facades\Artisan::call('view:clear');
+        
+        // Clear config cache if it exists
+        if (function_exists('config_clear')) {
+            config_clear();
+        }
+        
+        // Force reload of settings in the current request
+        app()->forgetInstance('settings');
 
         return redirect()->route('admin.settings.index')
                         ->with('success', 'Settings updated successfully.');
@@ -149,6 +173,24 @@ class SiteSettingController extends Controller
                 'label' => 'Font Family',
                 'description' => 'Primary font family for the website',
                 'sort_order' => 8,
+            ],
+            [
+                'key' => 'organization_location',
+                'value' => 'काठमाडौं, नेपाल',
+                'type' => 'text',
+                'group' => 'brand',
+                'label' => 'Organization Location',
+                'description' => 'The location of the organization',
+                'sort_order' => 9,
+            ],
+            [
+                'key' => 'organization_establishment',
+                'value' => 'स्थापना: २०४६ साल',
+                'type' => 'text',
+                'group' => 'brand',
+                'label' => 'Organization Establishment',
+                'description' => 'The establishment date of the organization',
+                'sort_order' => 10,
             ],
             
             // Footer Settings
